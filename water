@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+class WaterBottle
+{
+    int capacity;
+    int currentWater;
+
+public:
+    void getData()
+    {
+        cout << "Enter bottle capacity: ";
+        cin >> capacity;
+
+        cout << "Enter current water: ";
+        cin >> currentWater;
+    }
+
+    void drinkWater(int amount)
+    {
+        if (amount <= currentWater)
+        {
+            currentWater = currentWater - amount;
+            cout << "Water Drunk Successfully\n";
+        }
+        else
+        {
+            cout << "Not enough water!\n";
+        }
+    }
+
+    void fillBottle()
+    {
+        currentWater = capacity;
+        cout << "Bottle Filled\n";
+    }
+
+    void displayWaterLeft()
+    {
+        cout << "Water Left: " << currentWater << " ml\n";
+    }
+};
+
+int main()
+{
+    WaterBottle b;
+    int drink;
+
+    b.getData();
+
+    b.displayWaterLeft();
+
+    cout << "Enter amount to drink: ";
+    cin >> drink;
+
+    b.drinkWater(drink);
+
+    b.displayWaterLeft();
+
+    b.fillBottle();
+
+    b.displayWaterLeft();
+
+    return 0;
+}
